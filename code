@@ -1,0 +1,119 @@
+/*
+* Name: Jiajie Li
+* Purpose: This project uses Inheritance and Polymorphism in a C++ to gather and display student and staff data.
+*/
+
+#include <iostream>
+#include <cstring>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+class Person
+{
+protected:
+    string name, campus;
+public:
+    void setName(string thisName)
+    {name = thisName;}
+
+    void setCampus(string thisCampus)
+    {campus = thisCampus;}
+
+    void display()
+    {
+        cout << "User's name is " << name << endl;
+        cout << "Campus is " << campus << endl;
+        printf("\n");
+    }
+};
+
+class Student : public Person
+{
+private:
+    string ID;
+    string major;
+public:
+    void setID(string thisID)
+    {ID = thisID;}
+
+    void setMajor(string thisMajor)
+    {major = thisMajor;}
+
+    void displayStudent()
+    {
+        cout << "User's name is " << name << endl;
+        cout << "Campus is " << campus << endl;
+        cout << "ID number is " << ID << endl;
+        cout << "Major is " << major << endl;
+        printf("\n");
+    }
+};
+
+class Staff : public Person
+{
+private:
+    string ID;
+    string department;
+public:
+    void setID(string thisID)
+    {ID = thisID;}
+
+    void setDepartment(string thisDepartment)
+    {department = thisDepartment;}
+
+    void displayStaff()
+    {
+        cout << "User's name is " << name << endl;
+        cout << "Campus is " << campus << endl;
+        cout << "ID number is " << ID << endl;
+        cout << "Department is " << department << endl;
+        printf("\n");
+    }
+};
+
+int main()
+{
+    Student kid;
+    string kidName, kidID, kidCampus, kidMajor;
+
+    Staff teacher;
+    string teacherName, teacherCampus, teacherID, department;
+
+    cout << "Please enter student Name: ";
+    getline(cin, kidName);
+    cout << "Please enter student Campus: ";
+    getline(cin, kidCampus);
+    cout << "Please enter student ID: ";
+    getline(cin, kidID);
+    cout << "Please enter student major: ";
+    getline(cin, kidMajor);
+
+    printf("\n");
+
+    kid.setName(kidName);
+    kid.setCampus(kidCampus);
+    kid.setID(kidID);
+    kid.setMajor(kidMajor);
+
+    kid.displayStudent();
+
+    cout << "Please enter staff Name: ";
+    getline(cin, teacherName);
+    cout << "Please enter staff Campus: ";
+    getline(cin, teacherCampus);
+    cout << "Please enter staff ID: ";
+    getline(cin, teacherID);
+    cout << "Please enter staff department: ";
+    getline(cin, department);
+
+    printf("\n");
+
+    teacher.setName(teacherName);
+    teacher.setCampus(teacherCampus);
+    teacher.setID(teacherID);
+    teacher.setDepartment(department);
+
+    teacher.displayStaff();
+}
